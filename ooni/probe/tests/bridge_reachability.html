@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Details &mdash; OONI: Open Observatory of Network Interference 1.3.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="OONI: Open Observatory of Network Interference 1.3.1 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> OONI: Open Observatory of Network Interference
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing_tests.html">Writing OONI tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports.html#report-format-version-changelog">Report format version changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nettests/modules.html">Implemented NetTests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ooni.html">Measurement Developer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ooni.templates.html">Test Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">OONI: Open Observatory of Network Interference</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Details</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tests/bridge_reachability.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="details">
+<h1>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h1>
+<p><em>Test Name</em>: Bridge Reachability Test</p>
+<p><em>Current version</em>: 0.1.2</p>
+<p><em>NetTest</em>: HTTP Requests (<a class="reference external" href="https://gitweb.torproject.org/ooni-probe.git/blob/HEAD:/ooni/nettests/blocking/bridge_reachability.py">https://gitweb.torproject.org/ooni-probe.git/blob/HEAD:/ooni/nettests/blocking/bridge_reachability.py</a>)</p>
+<p><em>Test Helper</em>: None</p>
+<p><em>Test Type</em>: Content Blocking</p>
+<p><em>Requires Root</em>: No</p>
+</div>
+<div class="section" id="description">
+<h1>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h1>
+<p>This test detects which Tor bridges are working from the given network vantage
+point and which ones are not. For every bridge specified as input a new tor
+instance is started and it is instructed to connect to Tor using that bridge.
+It will try to bootstrap to 100% and either succeed or timeout after a default
+time of 120 seconds.</p>
+</div>
+<div class="section" id="how-to-run-the-test">
+<h1>How to run the test<a class="headerlink" href="#how-to-run-the-test" title="Permalink to this headline">¶</a></h1>
+<p><cite>ooniprobe blocking/bridge_reachability.py -f &lt;input_file&gt;</cite></p>
+<p><em>input file</em> a list of TransportType IP:ORPort bridges (ex. obfs3
+198.51.100.45:9045) or IP:ORPort (ex. 203.0.113.27:1828) to test reachability
+for.</p>
+</div>
+<div class="section" id="optional-test-options">
+<h1>Optional test options<a class="headerlink" href="#optional-test-options" title="Permalink to this headline">¶</a></h1>
+<p><em>-t</em> Specify the timeout after which to consider the Tor bootstrapping process
+to have failed. The default is 120 seconds.</p>
+</div>
+<div class="section" id="sample-report">
+<h1>Sample report<a class="headerlink" href="#sample-report" title="Permalink to this headline">¶</a></h1>
+<p><cite>ooniprobe blocking/bridge_reachability.py -f bridges.txt</cite></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">###########################################</span>
+<span class="c"># OONI Probe Report for bridge_reachability (0.1)</span>
+<span class="c"># Thu Aug  7 16:10:50 2014</span>
+<span class="c">###########################################</span>
+</pre></div>
+</div>
+<p>&#8212;
+input_hashes: [595c8ad9b63ff9f142eca6296021990df6367ab03b3c4eb1c69a8747f0cd41a1]
+options: [-f, bridges.txt]
+probe_asn: AS3269
+probe_cc: IT
+probe_city: null
+probe_ip: 127.0.0.1
+software_name: ooniprobe
+software_version: 1.0.2
+start_time: 1407420650.560137
+test_name: bridge_reachability
+test_version: &#8216;0.1&#8217;
+...
+&#8212;
+{bridge_address: &#8216;169.229.59.74:31493&#8217;, error: null, input: &#8216;obfs3 169.229.59.74:31493</p>
+<blockquote>
+<div><blockquote>
+<div>AF9F66B7B04F8FF6F32D455F05135250A16543C9&#8217;, success: true, timeout: 120, tor_log: null,</div></blockquote>
+<p>tor_progress: 100, tor_progress_summary: Done, tor_progress_tag: done, tor_version: 0.2.4.20,
+transport_name: obfs3}</p>
+</div></blockquote>
+<div class="section" id="id1">
+<h2>...<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>{bridge_address: &#8216;169.229.59.75:46328&#8217;, error: null, input: &#8216;obfs3 169.229.59.75:46328</dt>
+<dd><blockquote class="first">
+<div>AF9F66B7B04F8FF6F32D455F05135250A16543C9&#8217;, success: true, timeout: 120, tor_log: null,</div></blockquote>
+<p class="last">tor_progress: 100, tor_progress_summary: Done, tor_progress_tag: done, tor_version: 0.2.4.20,
+transport_name: obfs3}</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id2">
+<h2>...<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>{bridge_address: &#8216;208.79.90.242:35658&#8217;, error: null, input: &#8216;obfs3 208.79.90.242:35658</dt>
+<dd><blockquote class="first">
+<div>BA61757846841D64A83EA2514C766CB92F1FB41F&#8217;, success: true, timeout: 120, tor_log: null,</div></blockquote>
+<p class="last">tor_progress: 100, tor_progress_summary: Done, tor_progress_tag: done, tor_version: 0.2.4.20,
+transport_name: obfs3}</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id3">
+<h2>...<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>{bridge_address: &#8216;83.212.100.216:47870&#8217;, error: null, input: &#8216;obfs2 83.212.100.216:47870</dt>
+<dd><blockquote class="first">
+<div>1F01A7BB60F49FC96E0850A6BAD6D076DFEFAF80&#8217;, success: false, timeout: 120, tor_log: &#8216;&#8217;,</div></blockquote>
+<p class="last">tor_progress: 0, tor_progress_summary: null, tor_progress_tag: null, tor_version: 0.2.4.20,
+transport_name: obfs2}</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id4">
+<h2>...<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>{bridge_address: &#8216;83.212.96.182:46602&#8217;, error: null, input: &#8216;obfs2 83.212.96.182:46602</dt>
+<dd><blockquote class="first">
+<div>6F058CBEF888EB20D1DEB9886909F1E812245D41&#8217;, success: false, timeout: 120, tor_log: &#8216;&#8217;,</div></blockquote>
+<p class="last">tor_progress: 0, tor_progress_summary: null, tor_progress_tag: null, tor_version: 0.2.4.20,
+transport_name: obfs2}</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id5">
+<h2>...<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>{bridge_address: &#8216;70.182.182.109:54542&#8217;, error: null, input: &#8216;obfs2 70.182.182.109:54542</dt>
+<dd><blockquote class="first">
+<div>94C9E691688FAFDEC701A0788BD15BE8AD34ED35&#8217;, success: false, timeout: 120, tor_log: &#8216;&#8217;,</div></blockquote>
+<p class="last">tor_progress: 0, tor_progress_summary: null, tor_progress_tag: null, tor_version: 0.2.4.20,
+transport_name: obfs2}</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id6">
+<h2>...<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>{bridge_address: &#8216;128.31.0.34:1051&#8217;, error: null, input: &#8216;obfs2 128.31.0.34:1051 CA7434F14A898C7D3427B8295A7F83446BC7F496&#8217;,</dt>
+<dd>success: false, timeout: 120, tor_log: &#8216;&#8217;, tor_progress: 0, tor_progress_summary: null,
+tor_progress_tag: null, tor_version: 0.2.4.20, transport_name: obfs2}</dd>
+</dl>
+</div>
+<div class="section" id="id7">
+<h2>...<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>{bridge_address: &#8216;83.212.101.2:45235&#8217;, error: null, input: &#8216;obfs2 83.212.101.2:45235</dt>
+<dd><blockquote class="first">
+<div>2ADFE7AA8D272C520D1FBFBF4E413F3A1B26313D&#8217;, success: false, timeout: 120, tor_log: &#8216;&#8217;,</div></blockquote>
+<p class="last">tor_progress: 0, tor_progress_summary: null, tor_progress_tag: null, tor_version: 0.2.4.20,
+transport_name: obfs2}</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id8">
+<h2>...<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>{bridge_address: &#8216;83.212.101.2:42782&#8217;, error: null, input: &#8216;obfs3 83.212.101.2:42782</dt>
+<dd><blockquote class="first">
+<div>2ADFE7AA8D272C520D1FBFBF4E413F3A1B26313D&#8217;, success: false, timeout: 120, tor_log: &#8216;&#8217;,</div></blockquote>
+<p class="last">tor_progress: 0, tor_progress_summary: null, tor_progress_tag: null, tor_version: 0.2.4.20,
+transport_name: obfs3}</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id9">
+<h2>...<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>{bridge_address: &#8216;83.212.101.2:443&#8217;, error: null, input: &#8216;obfs3 83.212.101.2:443 2ADFE7AA8D272C520D1FBFBF4E413F3A1B26313D&#8217;,</dt>
+<dd>success: false, timeout: 120, tor_log: &#8216;&#8217;, tor_progress: 0, tor_progress_summary: null,
+tor_progress_tag: null, tor_version: 0.2.4.20, transport_name: obfs3}</dd>
+</dl>
+</div>
+<div class="section" id="id10">
+<h2>...<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>{bridge_address: &#8216;209.141.36.236:45496&#8217;, error: null, input: &#8216;obfs3 209.141.36.236:45496</dt>
+<dd><blockquote class="first">
+<div>58D91C3A631F910F32E18A55441D5A0463BA66E2&#8217;, success: false, timeout: 120, tor_log: &#8216;&#8217;,</div></blockquote>
+<p class="last">tor_progress: 0, tor_progress_summary: null, tor_progress_tag: null, tor_version: 0.2.4.20,
+transport_name: obfs3}</p>
+</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>...</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, The Tor Project.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.3.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

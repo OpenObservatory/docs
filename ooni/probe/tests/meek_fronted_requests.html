@@ -1,0 +1,459 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Details &mdash; OONI: Open Observatory of Network Interference 1.3.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="OONI: Open Observatory of Network Interference 1.3.1 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> OONI: Open Observatory of Network Interference
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing_tests.html">Writing OONI tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports.html#report-format-version-changelog">Report format version changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nettests/modules.html">Implemented NetTests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ooni.html">Measurement Developer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ooni.templates.html">Test Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">OONI: Open Observatory of Network Interference</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Details</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tests/meek_fronted_requests.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="details">
+<h1>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h1>
+<p><em>Test Name</em>: Meek Fronted Request Test</p>
+<p><em>Current version</em>: 0.0.1</p>
+<p><em>NetTest</em>: HTTP Requests (<a class="reference external" href="https://gitweb.torproject.org/ooni-probe.git/blob/HEAD:/ooni/nettests/blocking/meek_fronted_requests.py">https://gitweb.torproject.org/ooni-probe.git/blob/HEAD:/ooni/nettests/blocking/meek_fronted_requests.py</a>)</p>
+<p><em>Test Helper</em>: None</p>
+<p><em>Test Type</em>: Content Blocking, Traffic Manipulation</p>
+<p><em>Requires Root</em>: No</p>
+</div>
+<div class="section" id="description">
+<h1>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h1>
+<p>Performs a HTTP GET request to a list of fronted domains with the Host
+Header of the &#8220;inside&#8221; meek-server. The meek-server handles a GET request and
+response with: &#8220;I’m just a happy little web server.n&#8221;.</p>
+<p>It tests if the fronted request/response to the meek server is successful.</p>
+</div>
+<div class="section" id="how-to-run-the-test">
+<h1>How to run the test<a class="headerlink" href="#how-to-run-the-test" title="Permalink to this headline">¶</a></h1>
+<p>To test if the default meek servers are blocked:</p>
+<p><cite>ooniprobe blocking/meek_fronted_requests</cite></p>
+<p>To test a set of meek servers from a list containing hosts to test run:</p>
+<p><cite>ooniprobe blocking/meek_fronted_requests -f &lt;input_file&gt;</cite></p>
+<p><em>input file</em> a list of domainName:hostHeader pairs to perform the test.</p>
+</div>
+<div class="section" id="optional-test-options">
+<h1>Optional test options<a class="headerlink" href="#optional-test-options" title="Permalink to this headline">¶</a></h1>
+<p><em>-B</em> Expected body content from GET response (meek server default: &#8216;I’m just a
+happy little web server.n&#8217;)
+<em>-D</em> Specify a single fronted domainName to test.
+<em>-H</em> Specify &#8220;inside&#8221; Host Header to test.</p>
+</div>
+<div class="section" id="sample-report">
+<h1>Sample report<a class="headerlink" href="#sample-report" title="Permalink to this headline">¶</a></h1>
+<p><cite>ooniprobe blocking/meek_fronted_requests</cite></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">###########################################</span>
+<span class="c"># OONI Probe Report for meek_fronted_requests_test (0.0.1)</span>
+<span class="c"># Thu Oct 15 22:01:32 2015</span>
+<span class="c">###########################################</span>
+</pre></div>
+</div>
+<p>&#8212;
+input_hashes: []
+options: []
+probe_asn: AS20676
+probe_cc: DE
+probe_city: null
+probe_ip: 127.0.0.1
+report_id: null
+software_name: ooniprobe
+software_version: 1.3.1
+start_time: 1444932091.0
+test_helpers: {}
+test_name: meek_fronted_requests_test
+test_version: 0.0.1
+...
+&#8212;
+agent: agent
+input: [a0.awsstatic.com, d2zfqthxsdq309.cloudfront.net]
+requests:
+- request:</p>
+<blockquote>
+<div><blockquote>
+<div><p>body: null
+headers:
+- - Host</p>
+<blockquote>
+<div><ul class="simple">
+<li>[d2zfqthxsdq309.cloudfront.net]</li>
+</ul>
+</div></blockquote>
+<p>method: GET
+tor: {is_tor: false}
+url: <a class="reference external" href="https://a0.awsstatic.com">https://a0.awsstatic.com</a></p>
+</div></blockquote>
+<dl class="docutils">
+<dt>response:</dt>
+<dd><p class="first">body: &#8220;Iu2019m just a happy little web server.n&#8221;
+code: 200
+headers:
+- - Content-Length</p>
+<blockquote>
+<div><ul class="simple">
+<li>[&#8216;38&#8217;]</li>
+</ul>
+</div></blockquote>
+<ul class="last simple">
+<li><ul class="first">
+<li>Via</li>
+<li>[1.1 15191055e43ba835d0fead01ae84015c.cloudfront.net (CloudFront)]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>X-Cache</li>
+<li>[Hit from cloudfront]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Age</li>
+<li>[&#8216;530&#8217;]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Connection</li>
+<li>[close]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>X-Amz-Cf-Id</li>
+<li>[PKUBrpXDpoi2rSZ-WV0YUzX1wPg6JylZ_37iQeRQJB-xDLtJddcxzw==]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Date</li>
+<li>[&#8216;Thu, 15 Oct 2015 19:52:47 GMT&#8217;]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Content-Type</li>
+<li>[text/plain; charset=utf-8]</li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<p>socksproxy: null
+success: true
+test_runtime: 0.3198120594024658
+test_start_time: 1444932097.0
+...
+&#8212;
+agent: agent
+input: [ajax.aspnetcdn.com, az668014.vo.msecnd.net]
+requests:
+- request:</p>
+<blockquote>
+<div><blockquote>
+<div><p>body: null
+headers:
+- - Host</p>
+<blockquote>
+<div><ul class="simple">
+<li>[az668014.vo.msecnd.net]</li>
+</ul>
+</div></blockquote>
+<p>method: GET
+tor: {is_tor: false}
+url: <a class="reference external" href="https://ajax.aspnetcdn.com">https://ajax.aspnetcdn.com</a></p>
+</div></blockquote>
+<dl class="docutils">
+<dt>response:</dt>
+<dd><p class="first">body: &#8220;Iu2019m just a happy little web server.n&#8221;
+code: 200
+headers:
+- - Date</p>
+<blockquote>
+<div><ul class="simple">
+<li>[&#8216;Thu, 15 Oct 2015 20:01:37 GMT&#8217;]</li>
+</ul>
+</div></blockquote>
+<ul class="last simple">
+<li><ul class="first">
+<li>Content-Length</li>
+<li>[&#8216;38&#8217;]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Content-Type</li>
+<li>[text/plain; charset=utf-8]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Connection</li>
+<li>[close]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Server</li>
+<li>[ECAcc (fcn/40C4)]</li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<p>socksproxy: null
+success: true
+test_runtime: 0.4580512046813965
+test_start_time: 1444932097.0
+...
+&#8212;
+agent: agent
+input: [www.google.com, meek-reflect.appspot.com]
+requests:
+- request:</p>
+<blockquote>
+<div><blockquote>
+<div><p>body: null
+headers:
+- - Host</p>
+<blockquote>
+<div><ul class="simple">
+<li>[meek-reflect.appspot.com]</li>
+</ul>
+</div></blockquote>
+<p>method: GET
+tor: {is_tor: false}
+url: <a class="reference external" href="https://www.google.com">https://www.google.com</a></p>
+</div></blockquote>
+<dl class="docutils">
+<dt>response:</dt>
+<dd><p class="first">body: &#8220;Iu2019m just a happy little web server.n&#8221;
+code: 200
+headers:
+- - Alternate-Protocol</p>
+<blockquote>
+<div><ul class="simple">
+<li>[&#8216;443:quic,p=1&#8217;]</li>
+</ul>
+</div></blockquote>
+<ul class="last simple">
+<li><ul class="first">
+<li>Content-Length</li>
+<li>[&#8216;38&#8217;]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Server</li>
+<li>[Google Frontend]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Connection</li>
+<li>[close]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Date</li>
+<li>[&#8216;Thu, 15 Oct 2015 20:01:38 GMT&#8217;]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Alt-Svc</li>
+<li>[&#8216;quic=&#8221;:443&#8221;; p=&#8221;1&#8221;; ma=604800&#8217;]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Content-Type</li>
+<li>[text/plain; charset=utf-8]</li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<p>socksproxy: null
+success: true
+test_runtime: 0.5862560272216797
+test_start_time: 1444932097.0
+...</p>
+<blockquote>
+<div>...</div></blockquote>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, The Tor Project.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.3.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
