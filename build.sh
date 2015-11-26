@@ -27,11 +27,12 @@ pip install pelican markdown
 if [ ! -d "$WORKING_DIR/ooni-probe/"  ]; then
     git clone https://github.com/TheTorProject/ooni-probe.git $WORKING_DIR/ooni-probe
     cd $WORKING_DIR/ooni-probe/
+    git checkout $OONI_PROBE_BRANCH
 else
     cd $WORKING_DIR/ooni-probe/
+    git checkout $OONI_PROBE_BRANCH
     git pull
 fi
-git checkout $OONI_PROBE_BRANCH
 pip install -r requirements.txt
 pip install sphinx
 
