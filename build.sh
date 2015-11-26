@@ -3,7 +3,7 @@
 BASE_DIR=`pwd`
 WORKING_DIR="$BASE_DIR/TMP"
 OONI_PROBE_BRANCH="master"
-OONI_PIPELINE_BRANCH="feature/docs"
+OONI_PIPELINE_BRANCH="master"
 
 if [ ! -d "$WORKING_DIR"  ]; then
     mkdir $WORKING_DIR
