@@ -98,7 +98,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-ooni.nettests.manipulation.http_header_field_manipulation"><code class="docutils literal"><span class="pre">ooni.nettests.manipulation.http_header_field_manipulation</span></code> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ooni.nettests.manipulation.http_host"><code class="docutils literal"><span class="pre">ooni.nettests.manipulation.http_host</span></code> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ooni.nettests.manipulation.http_invalid_request_line"><code class="docutils literal"><span class="pre">ooni.nettests.manipulation.http_invalid_request_line</span></code> Module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ooni.nettests.manipulation.traceroute"><code class="docutils literal"><span class="pre">ooni.nettests.manipulation.traceroute</span></code> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ooni-nettests-manipulation-traceroute-module"><code class="docutils literal"><span class="pre">ooni.nettests.manipulation.traceroute</span></code> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ooni.nettests.scanning.html">ooni.nettests scanning Package</a></li>
@@ -386,7 +386,7 @@ will be run.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">twisted.python.usage.Options</span></code></p>
 <dl class="attribute">
 <dt id="ooni.nettests.manipulation.captiveportal.UsageOptions.optParameters">
-<code class="descname">optParameters</code><em class="property"> = [['asset', 'a', None, 'Asset file'], ['experiment-url', 'e', 'http://google.com/', 'Experiment URL'], ['user-agent', 'u', 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6', 'User agent for HTTP requests']]</em><a class="headerlink" href="#ooni.nettests.manipulation.captiveportal.UsageOptions.optParameters" title="Permalink to this definition">¶</a></dt>
+<code class="descname">optParameters</code><em class="property"> = [['asset', 'a', None, 'Asset file'], ['experiment-url', 'e', 'http://google.com/', 'Experiment URL'], ['user-agent', 'u', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6', 'User agent for HTTP requests']]</em><a class="headerlink" href="#ooni.nettests.manipulation.captiveportal.UsageOptions.optParameters" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -912,96 +912,8 @@ Proxy-Connection: close</div></blockquote>
 </dd></dl>
 
 </div>
-<div class="section" id="module-ooni.nettests.manipulation.traceroute">
-<span id="ooni-nettests-manipulation-traceroute-module"></span><h2><a class="reference internal" href="#module-ooni.nettests.manipulation.traceroute" title="ooni.nettests.manipulation.traceroute"><code class="xref py py-mod docutils literal"><span class="pre">ooni.nettests.manipulation.traceroute</span></code></a> Module<a class="headerlink" href="#module-ooni.nettests.manipulation.traceroute" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="ooni.nettests.manipulation.traceroute.Traceroute">
-<em class="property">class </em><code class="descclassname">ooni.nettests.manipulation.traceroute.</code><code class="descname">Traceroute</code><a class="reference internal" href="../_modules/ooni/nettests/manipulation/traceroute.html#Traceroute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.manipulation.traceroute.Traceroute" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../api/ooni.templates.html#ooni.templates.scapyt.BaseScapyTest" title="ooni.templates.scapyt.BaseScapyTest"><code class="xref py py-class docutils literal"><span class="pre">ooni.templates.scapyt.BaseScapyTest</span></code></a></p>
-<dl class="method">
-<dt id="ooni.nettests.manipulation.traceroute.Traceroute.addToReport">
-<code class="descname">addToReport</code><span class="sig-paren">(</span><em>packet</em>, <em>response</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/manipulation/traceroute.html#Traceroute.addToReport"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.manipulation.traceroute.Traceroute.addToReport" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.manipulation.traceroute.Traceroute.description">
-<code class="descname">description</code><em class="property"> = 'Performs a UDP, TCP, ICMP traceroute with destination port number set to 0, 22, 23, 53, 80, 123, 443, 8080 and 65535'</em><a class="headerlink" href="#ooni.nettests.manipulation.traceroute.Traceroute.description" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.manipulation.traceroute.Traceroute.dst_ports">
-<code class="descname">dst_ports</code><em class="property"> = [0, 22, 23, 53, 80, 123, 443, 8080, 65535]</em><a class="headerlink" href="#ooni.nettests.manipulation.traceroute.Traceroute.dst_ports" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.manipulation.traceroute.Traceroute.name">
-<code class="descname">name</code><em class="property"> = 'Traceroute'</em><a class="headerlink" href="#ooni.nettests.manipulation.traceroute.Traceroute.name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.manipulation.traceroute.Traceroute.requiredTestHelpers">
-<code class="descname">requiredTestHelpers</code><em class="property"> = {'backend': 'traceroute'}</em><a class="headerlink" href="#ooni.nettests.manipulation.traceroute.Traceroute.requiredTestHelpers" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.manipulation.traceroute.Traceroute.requiresRoot">
-<code class="descname">requiresRoot</code><em class="property"> = True</em><a class="headerlink" href="#ooni.nettests.manipulation.traceroute.Traceroute.requiresRoot" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.manipulation.traceroute.Traceroute.requiresTor">
-<code class="descname">requiresTor</code><em class="property"> = False</em><a class="headerlink" href="#ooni.nettests.manipulation.traceroute.Traceroute.requiresTor" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="ooni.nettests.manipulation.traceroute.Traceroute.run_traceroute">
-<code class="descname">run_traceroute</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/manipulation/traceroute.html#Traceroute.run_traceroute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.manipulation.traceroute.Traceroute.run_traceroute" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="ooni.nettests.manipulation.traceroute.Traceroute.setUp">
-<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/manipulation/traceroute.html#Traceroute.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.manipulation.traceroute.Traceroute.setUp" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="ooni.nettests.manipulation.traceroute.Traceroute.test_icmp_traceroute">
-<code class="descname">test_icmp_traceroute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/manipulation/traceroute.html#Traceroute.test_icmp_traceroute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.manipulation.traceroute.Traceroute.test_icmp_traceroute" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="ooni.nettests.manipulation.traceroute.Traceroute.test_tcp_traceroute">
-<code class="descname">test_tcp_traceroute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/manipulation/traceroute.html#Traceroute.test_tcp_traceroute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.manipulation.traceroute.Traceroute.test_tcp_traceroute" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="ooni.nettests.manipulation.traceroute.Traceroute.test_udp_traceroute">
-<code class="descname">test_udp_traceroute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/manipulation/traceroute.html#Traceroute.test_udp_traceroute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.manipulation.traceroute.Traceroute.test_udp_traceroute" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.manipulation.traceroute.Traceroute.usageOptions">
-<code class="descname">usageOptions</code><a class="headerlink" href="#ooni.nettests.manipulation.traceroute.Traceroute.usageOptions" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="#ooni.nettests.manipulation.traceroute.UsageOptions" title="ooni.nettests.manipulation.traceroute.UsageOptions"><code class="xref py py-class docutils literal"><span class="pre">UsageOptions</span></code></a></p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.manipulation.traceroute.Traceroute.version">
-<code class="descname">version</code><em class="property"> = '0.3'</em><a class="headerlink" href="#ooni.nettests.manipulation.traceroute.Traceroute.version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="ooni.nettests.manipulation.traceroute.UsageOptions">
-<em class="property">class </em><code class="descclassname">ooni.nettests.manipulation.traceroute.</code><code class="descname">UsageOptions</code><a class="reference internal" href="../_modules/ooni/nettests/manipulation/traceroute.html#UsageOptions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.manipulation.traceroute.UsageOptions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">twisted.python.usage.Options</span></code></p>
-<dl class="attribute">
-<dt id="ooni.nettests.manipulation.traceroute.UsageOptions.optParameters">
-<code class="descname">optParameters</code><em class="property"> = [['backend', 'b', None, 'Test backend to use'], ['timeout', 't', 5, 'The timeout for the traceroute test'], ['maxttl', 'm', 30, 'The maximum value of ttl to set on packets'], ['dstport', 'd', None, 'Specify a single destination port. May be repeated.'], ['interval', 'i', None, 'Specify the inter-packet delay in seconds'], ['numPackets', 'n', None, 'Specify the number of packets to send per hop']]</em><a class="headerlink" href="#ooni.nettests.manipulation.traceroute.UsageOptions.optParameters" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="ooni-nettests-manipulation-traceroute-module">
+<h2><code class="xref py py-mod docutils literal"><span class="pre">ooni.nettests.manipulation.traceroute</span></code> Module<a class="headerlink" href="#ooni-nettests-manipulation-traceroute-module" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

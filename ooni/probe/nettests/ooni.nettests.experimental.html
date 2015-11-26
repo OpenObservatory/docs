@@ -91,12 +91,12 @@
 <li class="toctree-l2"><a class="reference internal" href="ooni.nettests.blocking.html">ooni.nettests blocking Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ooni.nettests.examples.html">ooni.nettests examples Package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">ooni.nettests experimental Package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#module-ooni.nettests.experimental.chinatrigger"><code class="docutils literal"><span class="pre">ooni.nettests.experimental.chinatrigger</span></code> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ooni-nettests-experimental-chinatrigger-module"><code class="docutils literal"><span class="pre">ooni.nettests.experimental.chinatrigger</span></code> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ooni-nettests-experimental-domclass-collector-module"><code class="docutils literal"><span class="pre">ooni.nettests.experimental.domclass_collector</span></code> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ooni.nettests.experimental.http_keyword_filtering"><code class="docutils literal"><span class="pre">ooni.nettests.experimental.http_keyword_filtering</span></code> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ooni.nettests.experimental.http_uk_mobile_networks"><code class="docutils literal"><span class="pre">ooni.nettests.experimental.http_uk_mobile_networks</span></code> Module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ooni.nettests.experimental.keyword_filtering"><code class="docutils literal"><span class="pre">ooni.nettests.experimental.keyword_filtering</span></code> Module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ooni.nettests.experimental.parasitictraceroute"><code class="docutils literal"><span class="pre">ooni.nettests.experimental.parasitictraceroute</span></code> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ooni-nettests-experimental-keyword-filtering-module"><code class="docutils literal"><span class="pre">ooni.nettests.experimental.keyword_filtering</span></code> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ooni-nettests-experimental-parasitictraceroute-module"><code class="docutils literal"><span class="pre">ooni.nettests.experimental.parasitictraceroute</span></code> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ooni.nettests.experimental.squid"><code class="docutils literal"><span class="pre">ooni.nettests.experimental.squid</span></code> Module</a></li>
 </ul>
 </li>
@@ -157,86 +157,8 @@
             
   <div class="section" id="ooni-nettests-experimental-package">
 <h1>ooni.nettests experimental Package<a class="headerlink" href="#ooni-nettests-experimental-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-ooni.nettests.experimental.chinatrigger">
-<span id="ooni-nettests-experimental-chinatrigger-module"></span><h2><a class="reference internal" href="#module-ooni.nettests.experimental.chinatrigger" title="ooni.nettests.experimental.chinatrigger"><code class="xref py py-mod docutils literal"><span class="pre">ooni.nettests.experimental.chinatrigger</span></code></a> Module<a class="headerlink" href="#module-ooni.nettests.experimental.chinatrigger" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="ooni.nettests.experimental.chinatrigger.ChinaTriggerTest">
-<em class="property">class </em><code class="descclassname">ooni.nettests.experimental.chinatrigger.</code><code class="descname">ChinaTriggerTest</code><a class="reference internal" href="../_modules/ooni/nettests/experimental/chinatrigger.html#ChinaTriggerTest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.experimental.chinatrigger.ChinaTriggerTest" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../api/ooni.templates.html#ooni.templates.scapyt.BaseScapyTest" title="ooni.templates.scapyt.BaseScapyTest"><code class="xref py py-class docutils literal"><span class="pre">ooni.templates.scapyt.BaseScapyTest</span></code></a></p>
-<p>This test is a OONI based implementation of the C tool written
-by Philipp Winter to engage chinese probes in active scanning.</p>
-<p>Example of running it:
-ooniprobe chinatrigger -d 127.0.0.1 -p 8080</p>
-<dl class="staticmethod">
-<dt id="ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.mutate">
-<em class="property">static </em><code class="descname">mutate</code><span class="sig-paren">(</span><em>pkt</em>, <em>idx</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/experimental/chinatrigger.html#ChinaTriggerTest.mutate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.mutate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Slightly changed mutate function.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.name">
-<code class="descname">name</code><em class="property"> = 'chinatrigger'</em><a class="headerlink" href="#ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.requiredOptions">
-<code class="descname">requiredOptions</code><em class="property"> = ['dst', 'port']</em><a class="headerlink" href="#ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.requiredOptions" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.setUp">
-<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/experimental/chinatrigger.html#ChinaTriggerTest.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.setUp" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="staticmethod">
-<dt id="ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.set_all_random_fields">
-<em class="property">static </em><code class="descname">set_all_random_fields</code><span class="sig-paren">(</span><em>pkt</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/experimental/chinatrigger.html#ChinaTriggerTest.set_all_random_fields"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.set_all_random_fields" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="staticmethod">
-<dt id="ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.set_random_field">
-<em class="property">static </em><code class="descname">set_random_field</code><span class="sig-paren">(</span><em>pkt</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/experimental/chinatrigger.html#ChinaTriggerTest.set_random_field"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.set_random_field" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="staticmethod">
-<dt id="ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.set_random_servername">
-<em class="property">static </em><code class="descname">set_random_servername</code><span class="sig-paren">(</span><em>pkt</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/experimental/chinatrigger.html#ChinaTriggerTest.set_random_servername"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.set_random_servername" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="staticmethod">
-<dt id="ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.set_random_time">
-<em class="property">static </em><code class="descname">set_random_time</code><span class="sig-paren">(</span><em>pkt</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/experimental/chinatrigger.html#ChinaTriggerTest.set_random_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.set_random_time" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.test_send_mutations">
-<code class="descname">test_send_mutations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/experimental/chinatrigger.html#ChinaTriggerTest.test_send_mutations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.test_send_mutations" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.timeout">
-<code class="descname">timeout</code><em class="property"> = 2</em><a class="headerlink" href="#ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.timeout" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.usageOptions">
-<code class="descname">usageOptions</code><a class="headerlink" href="#ooni.nettests.experimental.chinatrigger.ChinaTriggerTest.usageOptions" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="#ooni.nettests.experimental.chinatrigger.UsageOptions" title="ooni.nettests.experimental.chinatrigger.UsageOptions"><code class="xref py py-class docutils literal"><span class="pre">UsageOptions</span></code></a></p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="ooni.nettests.experimental.chinatrigger.UsageOptions">
-<em class="property">class </em><code class="descclassname">ooni.nettests.experimental.chinatrigger.</code><code class="descname">UsageOptions</code><a class="reference internal" href="../_modules/ooni/nettests/experimental/chinatrigger.html#UsageOptions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.experimental.chinatrigger.UsageOptions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">twisted.python.usage.Options</span></code></p>
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.chinatrigger.UsageOptions.optParameters">
-<code class="descname">optParameters</code><em class="property"> = [['dst', 'd', None, 'Specify the target address'], ['port', 'p', None, 'Specify the target port']]</em><a class="headerlink" href="#ooni.nettests.experimental.chinatrigger.UsageOptions.optParameters" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="ooni-nettests-experimental-chinatrigger-module">
+<h2><code class="xref py py-mod docutils literal"><span class="pre">ooni.nettests.experimental.chinatrigger</span></code> Module<a class="headerlink" href="#ooni-nettests-experimental-chinatrigger-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="ooni-nettests-experimental-domclass-collector-module">
 <h2><code class="xref py py-mod docutils literal"><span class="pre">ooni.nettests.experimental.domclass_collector</span></code> Module<a class="headerlink" href="#ooni-nettests-experimental-domclass-collector-module" title="Permalink to this headline">¶</a></h2>
@@ -403,120 +325,11 @@ to see how the rules file should look like.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-ooni.nettests.experimental.keyword_filtering">
-<span id="ooni-nettests-experimental-keyword-filtering-module"></span><h2><a class="reference internal" href="#module-ooni.nettests.experimental.keyword_filtering" title="ooni.nettests.experimental.keyword_filtering"><code class="xref py py-mod docutils literal"><span class="pre">ooni.nettests.experimental.keyword_filtering</span></code></a> Module<a class="headerlink" href="#module-ooni.nettests.experimental.keyword_filtering" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="ooni.nettests.experimental.keyword_filtering.KeywordFiltering">
-<em class="property">class </em><code class="descclassname">ooni.nettests.experimental.keyword_filtering.</code><code class="descname">KeywordFiltering</code><a class="reference internal" href="../_modules/ooni/nettests/experimental/keyword_filtering.html#KeywordFiltering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.experimental.keyword_filtering.KeywordFiltering" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../api/ooni.templates.html#ooni.templates.scapyt.BaseScapyTest" title="ooni.templates.scapyt.BaseScapyTest"><code class="xref py py-class docutils literal"><span class="pre">ooni.templates.scapyt.BaseScapyTest</span></code></a></p>
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.keyword_filtering.KeywordFiltering.author">
-<code class="descname">author</code><em class="property"> = 'Arturo Filast\xc3\xb2'</em><a class="headerlink" href="#ooni.nettests.experimental.keyword_filtering.KeywordFiltering.author" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.keyword_filtering.KeywordFiltering.inputFile">
-<code class="descname">inputFile</code><em class="property"> = ['file', 'f', None, 'List of keywords to use for censorship testing']</em><a class="headerlink" href="#ooni.nettests.experimental.keyword_filtering.KeywordFiltering.inputFile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.keyword_filtering.KeywordFiltering.name">
-<code class="descname">name</code><em class="property"> = 'Keyword Filtering detection based on RST packets'</em><a class="headerlink" href="#ooni.nettests.experimental.keyword_filtering.KeywordFiltering.name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.keyword_filtering.KeywordFiltering.requiresRoot">
-<code class="descname">requiresRoot</code><em class="property"> = True</em><a class="headerlink" href="#ooni.nettests.experimental.keyword_filtering.KeywordFiltering.requiresRoot" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.keyword_filtering.KeywordFiltering.requiresTor">
-<code class="descname">requiresTor</code><em class="property"> = False</em><a class="headerlink" href="#ooni.nettests.experimental.keyword_filtering.KeywordFiltering.requiresTor" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="ooni.nettests.experimental.keyword_filtering.KeywordFiltering.test_tcp_keyword_filtering">
-<code class="descname">test_tcp_keyword_filtering</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/experimental/keyword_filtering.html#KeywordFiltering.test_tcp_keyword_filtering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.experimental.keyword_filtering.KeywordFiltering.test_tcp_keyword_filtering" title="Permalink to this definition">¶</a></dt>
-<dd><p>Places the keyword to be tested in the payload of a TCP packet.
-XXX need to implement bisection method for enumerating keywords.</p>
-<blockquote>
-<div>though this should not be an issue since we are testing all 
-the keywords in parallel.</div></blockquote>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.keyword_filtering.KeywordFiltering.usageOptions">
-<code class="descname">usageOptions</code><a class="headerlink" href="#ooni.nettests.experimental.keyword_filtering.KeywordFiltering.usageOptions" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="#ooni.nettests.experimental.keyword_filtering.UsageOptions" title="ooni.nettests.experimental.keyword_filtering.UsageOptions"><code class="xref py py-class docutils literal"><span class="pre">UsageOptions</span></code></a></p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.keyword_filtering.KeywordFiltering.version">
-<code class="descname">version</code><em class="property"> = '0.2'</em><a class="headerlink" href="#ooni.nettests.experimental.keyword_filtering.KeywordFiltering.version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="ooni.nettests.experimental.keyword_filtering.UsageOptions">
-<em class="property">class </em><code class="descclassname">ooni.nettests.experimental.keyword_filtering.</code><code class="descname">UsageOptions</code><a class="reference internal" href="../_modules/ooni/nettests/experimental/keyword_filtering.html#UsageOptions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.experimental.keyword_filtering.UsageOptions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">twisted.python.usage.Options</span></code></p>
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.keyword_filtering.UsageOptions.optParameters">
-<code class="descname">optParameters</code><em class="property"> = [['backend', 'b', '127.0.0.1:57002', 'Test backend running TCP echo'], ['timeout', 't', 5, 'Timeout after which to give up waiting for RST packets']]</em><a class="headerlink" href="#ooni.nettests.experimental.keyword_filtering.UsageOptions.optParameters" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="ooni-nettests-experimental-keyword-filtering-module">
+<h2><code class="xref py py-mod docutils literal"><span class="pre">ooni.nettests.experimental.keyword_filtering</span></code> Module<a class="headerlink" href="#ooni-nettests-experimental-keyword-filtering-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-ooni.nettests.experimental.parasitictraceroute">
-<span id="ooni-nettests-experimental-parasitictraceroute-module"></span><h2><a class="reference internal" href="#module-ooni.nettests.experimental.parasitictraceroute" title="ooni.nettests.experimental.parasitictraceroute"><code class="xref py py-mod docutils literal"><span class="pre">ooni.nettests.experimental.parasitictraceroute</span></code></a> Module<a class="headerlink" href="#module-ooni.nettests.experimental.parasitictraceroute" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest">
-<em class="property">class </em><code class="descclassname">ooni.nettests.experimental.parasitictraceroute.</code><code class="descname">ParasiticTracerouteTest</code><a class="reference internal" href="../_modules/ooni/nettests/experimental/parasitictraceroute.html#ParasiticTracerouteTest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../api/ooni.templates.html#ooni.templates.scapyt.BaseScapyTest" title="ooni.templates.scapyt.BaseScapyTest"><code class="xref py py-class docutils literal"><span class="pre">ooni.templates.scapyt.BaseScapyTest</span></code></a></p>
-<dl class="method">
-<dt id="ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest.addToReport">
-<code class="descname">addToReport</code><span class="sig-paren">(</span><em>result</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/experimental/parasitictraceroute.html#ParasiticTracerouteTest.addToReport"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest.addToReport" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest.description">
-<code class="descname">description</code><em class="property"> = 'Injects duplicate TCP packets with varying TTL values by sniffing traffic'</em><a class="headerlink" href="#ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest.description" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest.name">
-<code class="descname">name</code><em class="property"> = 'Parasitic Traceroute Test'</em><a class="headerlink" href="#ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest.name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest.requiresTor">
-<code class="descname">requiresTor</code><em class="property"> = False</em><a class="headerlink" href="#ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest.requiresTor" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest.samplePeriod">
-<code class="descname">samplePeriod</code><em class="property"> = 40</em><a class="headerlink" href="#ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest.samplePeriod" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest.setUp">
-<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/experimental/parasitictraceroute.html#ParasiticTracerouteTest.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest.setUp" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest.test_parasitic_traceroute">
-<code class="descname">test_parasitic_traceroute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/experimental/parasitictraceroute.html#ParasiticTracerouteTest.test_parasitic_traceroute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest.test_parasitic_traceroute" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest.version">
-<code class="descname">version</code><em class="property"> = '0.1'</em><a class="headerlink" href="#ooni.nettests.experimental.parasitictraceroute.ParasiticTracerouteTest.version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="ooni-nettests-experimental-parasitictraceroute-module">
+<h2><code class="xref py py-mod docutils literal"><span class="pre">ooni.nettests.experimental.parasitictraceroute</span></code> Module<a class="headerlink" href="#ooni-nettests-experimental-parasitictraceroute-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-ooni.nettests.experimental.squid">
 <span id="ooni-nettests-experimental-squid-module"></span><h2><a class="reference internal" href="#module-ooni.nettests.experimental.squid" title="ooni.nettests.experimental.squid"><code class="xref py py-mod docutils literal"><span class="pre">ooni.nettests.experimental.squid</span></code></a> Module<a class="headerlink" href="#module-ooni.nettests.experimental.squid" title="Permalink to this headline">¶</a></h2>
