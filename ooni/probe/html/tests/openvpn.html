@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Details &mdash; OONI: Open Observatory of Network Interference 1.3.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="OONI: Open Observatory of Network Interference 1.3.1 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> OONI: Open Observatory of Network Interference
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing_tests.html">Writing OONI tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports.html#report-format-version-changelog">Report format version changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nettests/modules.html">Implemented NetTests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ooni.html">Measurement Developer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ooni.templates.html">Test Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">OONI: Open Observatory of Network Interference</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Details</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tests/openvpn.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="details">
+<h1>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h1>
+<p><em>Test Name</em>: OpenVPN</p>
+<p><em>Current version</em>: 0.1</p>
+<p><em>NetTest</em>: OpenVPN (<a class="reference external" href="https://github.com/TheTorProject/ooni-probe/blob/master/ooni/nettests/third_party/openvpn.py">https://github.com/TheTorProject/ooni-probe/blob/master/ooni/nettests/third_party/openvpn.py</a>)</p>
+<p><em>Test Helper</em>: None</p>
+<p><em>Test Type</em>: third party</p>
+<p><em>Requires Root</em>: Yes</p>
+</div>
+<div class="section" id="description">
+<h1>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h1>
+<p>This test first launches OpenVPN and parses output to determine if it has bootstrapped. After bootstrap, it fetches the  URL specified by the &#8211;url argument using OpenVPN.</p>
+<p>The specific string used to determine bootstrap from OpenVPN output in version
+&#8220;0.0.1&#8221; is &#8220;Initialization Sequence Completed&#8221; from standard output.</p>
+</div>
+<div class="section" id="how-to-run-the-test">
+<h1>How to run the test<a class="headerlink" href="#how-to-run-the-test" title="Permalink to this headline">¶</a></h1>
+<p>First get credentials for a OpenVPN service and create the configuration file for OpenVPN.
+An example:</p>
+<blockquote>
+<div><p>client
+dev tun
+proto tcp
+remote &lt;vpndomain&gt; 80
+remote &lt;vppnip&gt; 80
+resolv-retry infinite
+tun-mtu 1500
+key-direction 1
+nobind
+persist-key
+persist-tun
+ns-cert-type server
+comp-lzo
+verb 3
+auth-user-pass &lt;vpnuserandpasswordfile&gt;
+route-method exe
+route-delay 2</p>
+<p>&lt;ca&gt;
+&#8212;&#8211;BEGIN CERTIFICATE&#8212;&#8211;
+...
+&#8212;&#8211;END CERTIFICATE&#8212;&#8211;
+&lt;/ca&gt;
+&lt;tls-auth&gt;
+&#8212;&#8211;BEGIN OpenVPN Static key V1&#8212;&#8211;
+...
+&#8212;&#8211;END OpenVPN Static key V1&#8212;&#8211;
+&lt;/tls-auth&gt;</p>
+</div></blockquote>
+<p>To run the test:</p>
+<p><cite>ooniprobe third_party/openvpn -u http://&lt;url&gt;/ -c &lt;OpenVPN configuration file&gt;</cite></p>
+</div>
+<div class="section" id="how-to-install-openvpn">
+<h1>How to install OpenVPN<a class="headerlink" href="#how-to-install-openvpn" title="Permalink to this headline">¶</a></h1>
+<p>Run the install script:</p>
+<p><cite>scripts/openvpn_install.sh</cite></p>
+<p>To run OpenVPN manually, :</p>
+<p><cite>openvpn &#8211;config &lt;OpenVPN configuration file&gt;</cite></p>
+</div>
+<div class="section" id="sample-report">
+<h1>Sample report<a class="headerlink" href="#sample-report" title="Permalink to this headline">¶</a></h1>
+<p><cite>ooniprobe blocking/http_requests -f example_inputs/url_lists_file.txt</cite></p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="c">###########################################</span>
+<span class="c"># OONI Probe Report for openvpn_client_test (0.0.2)</span>
+<span class="c"># Thu Nov 19 12:16:35 2015</span>
+<span class="c">###########################################</span>
+</pre></div>
+</div>
+<p>&#8212;
+input_hashes: []
+options: [-c, openvpn-config.ovpn, -u, &#8216;&#8217;]
+probe_asn: AS0
+probe_cc: ZZ
+probe_city: null
+probe_ip: 127.0.0.1
+report_id: oVWw3KA3UH2XrOlLa8gRaUB1ocvn6LhMeTBOtU1yFMtdyM3L6Bg9ix1ulSWZCGtK
+software_name: ooniprobe
+software_version: 1.3.1
+start_time: 1447928194.0
+test_helpers: {}
+test_name: openvpn_client_test
+test_version: 0.0.2
+...
+&#8212;
+/usr/sbin/openvpn &#8211;config openvpn-config.ovpn: {</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>exit_reason: process_done, stderr: &#8216;&#8217;, stdout: &#8216;Thu Nov 19 12:16:35 2015 OpenVPN</dt>
+<dd><p class="first">2.3.2 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [PKCS11] [eurephia] [MH]
+[IPv6] built on Dec  1 2014</p>
+<p>Thu Nov 19 12:16:35 2015 WARNING: file &#8216;&#8217;/tmp/openvpn.txt&#8217;&#8217; is group or others
+accessible</p>
+<p>Thu Nov 19 12:16:35 2015 Control Channel Authentication: tls-auth using INLINE
+static key file</p>
+<p>Thu Nov 19 12:16:35 2015 Attempting to establish TCP connection with [AF_INET]10.100.0.1:993
+[nonblock]</p>
+<p>Thu Nov 19 12:16:37 2015 TCP connection established with [AF_INET]10.100.0.1:993</p>
+<p>Thu Nov 19 12:16:37 2015 TCPv4_CLIENT link local: [undef]</p>
+<p>Thu Nov 19 12:16:37 2015 TCPv4_CLIENT link remote: [AF_INET]10.100.0.1:993</p>
+<p>Thu Nov 19 12:16:39 2015 WARNING: this configuration may cache passwords in memory
+&#8211; use the auth-nocache option to prevent this</p>
+<p>Thu Nov 19 12:16:42 2015 [server] Peer Connection Initiated with [AF_INET]10.100.0.1:993</p>
+<p>Thu Nov 19 12:16:44 2015 Options error: Unrecognized option or missing parameter(s)
+in [PUSH-OPTIONS]:3: dhcp (2.3.2)</p>
+<p>Thu Nov 19 12:16:44 2015 TUN/TAP device tun0 opened</p>
+<p>Thu Nov 19 12:16:44 2015 do_ifconfig, tt-&gt;ipv6=0, tt-&gt;did_ifconfig_ipv6_setup=0</p>
+<p>Thu Nov 19 12:16:44 2015 /sbin/ip link set dev tun0 up mtu 1500</p>
+<p>Thu Nov 19 12:16:44 2015 /sbin/ip addr add dev tun0 local 10.10.0.54 peer 10.10.0.53</p>
+<p>Thu Nov 19 12:16:44 2015 Initialization Sequence Completed</p>
+<p class="last">&#8216;}</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>body: &#8220;&lt;HTML&gt;&lt;HEAD&gt;&lt;meta http-equiv=&#8221;content-type&#8221; content=&#8221;text/html;charset=utf-8&#8221;</dt>
+<dd>&gt;n&lt;TITLE&gt;302 Moved&lt;/TITLE&gt;&lt;/HEAD&gt;&lt;BODY&gt;n&lt;H1&gt;302 Moved&lt;/H1&gt;nThe document has movedn&lt;A HREF=&#8221;<a class="reference external" href="http://www.google.de/?gfe_rd=cr&amp;amp;ei=yq9NVsq5JYvZ8Ae58KHoDA">http://www.google.de/?gfe_rd=cr&amp;amp;ei=yq9NVsq5JYvZ8Ae58KHoDA</a>&#8220;&gt;here&lt;/A&gt;.rn&lt;/BODY&gt;&lt;/HTML&gt;rn&#8221;</dd>
+</dl>
+<p>input: null
+success: true
+test_runtime: 9.549253940582275
+test_start_time: 1447928195.0
+...</p>
+</div></blockquote>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, The Tor Project.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.3.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
