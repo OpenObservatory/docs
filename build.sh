@@ -13,6 +13,16 @@ if [ ! -d "$WORKING_DIR/virtualenv-docs/"  ]; then
 fi
 source $WORKING_DIR/virtualenv-docs/bin/activate
 
+# Generate all the documentation related to OONI
+rm -rf $BASE_DIR/public/ooni
+mkdir -p $BASE_DIR/public/ooni/
+
+# Github pages related stuff
+pip install ghp-import
+
+# General packages
+pip install pelican markdown
+
 # Build the documentation for ooni-probe
 if [ ! -d "$WORKING_DIR/ooni-probe/"  ]; then
     git clone https://github.com/TheTorProject/ooni-probe.git $WORKING_DIR/ooni-probe
@@ -27,9 +37,7 @@ pip install sphinx
 
 cd docs/
 make html
-rm -rf $BASE_DIR/ooni/probe
-mv build/html $BASE_DIR/ooni/probe
-deactivate
+mv build/html $BASE_DIR/public/ooni/probe
 
 
 # Build the documentation for ooni-pipeline
@@ -43,5 +51,7 @@ fi
 git checkout $OONI_PIPELINE_BRANCH
 pip install -r requirements.txt
 mkdocs build
-rm -rf $BASE_DIR/ooni/pipeline
-mv site $BASE_DIR/ooni/pipeline
+mv site $BASE_DIR/public/ooni/pipeline
+
+# Copy the main website in
+cp -R $BASE_DIR/site/* $BASE_DIR/public/

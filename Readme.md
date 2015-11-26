@@ -8,3 +8,9 @@ To build the documentation for the Open Observatory just run:
 ```
 ./build.sh
 ```
+
+To publish the site you should run:
+
+```
+./publish.sh
+```
