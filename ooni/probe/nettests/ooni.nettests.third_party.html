@@ -96,6 +96,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="">ooni.nettests third_party Package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#module-ooni.nettests.third_party.netalyzr"><code class="docutils literal"><span class="pre">ooni.nettests.third_party.netalyzr</span></code> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ooni-nettests-third-party-openvpn-module"><code class="docutils literal"><span class="pre">ooni.nettests.third_party.openvpn</span></code> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ooni.nettests.third_party.psiphon"><code class="docutils literal"><span class="pre">ooni.nettests.third_party.psiphon</span></code> Module</a></li>
 </ul>
 </li>
 </ul>
@@ -199,6 +200,79 @@
 </div>
 <div class="section" id="ooni-nettests-third-party-openvpn-module">
 <h2><code class="xref py py-mod docutils literal"><span class="pre">ooni.nettests.third_party.openvpn</span></code> Module<a class="headerlink" href="#ooni-nettests-third-party-openvpn-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ooni.nettests.third_party.psiphon">
+<span id="ooni-nettests-third-party-psiphon-module"></span><h2><a class="reference internal" href="#module-ooni.nettests.third_party.psiphon" title="ooni.nettests.third_party.psiphon"><code class="xref py py-mod docutils literal"><span class="pre">ooni.nettests.third_party.psiphon</span></code></a> Module<a class="headerlink" href="#module-ooni.nettests.third_party.psiphon" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ooni.nettests.third_party.psiphon.PsiphonTest">
+<em class="property">class </em><code class="descclassname">ooni.nettests.third_party.psiphon.</code><code class="descname">PsiphonTest</code><a class="reference internal" href="../_modules/ooni/nettests/third_party/psiphon.html#PsiphonTest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.third_party.psiphon.PsiphonTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../api/ooni.templates.html#ooni.templates.httpt.HTTPTest" title="ooni.templates.httpt.HTTPTest"><code class="xref py py-class docutils literal"><span class="pre">ooni.templates.httpt.HTTPTest</span></code></a>, <code class="xref py py-class docutils literal"><span class="pre">ooni.templates.process.ProcessTest</span></code></p>
+<p>This class tests Psiphon python client</p>
+<dl class="docutils">
+<dt>test_psiphon:</dt>
+<dd>Starts a Psiphon, check if it bootstraps successfully
+(print a line in stdout).
+Then, perform an HTTP request using the proxy</dd>
+</dl>
+<dl class="attribute">
+<dt id="ooni.nettests.third_party.psiphon.PsiphonTest.author">
+<code class="descname">author</code><em class="property"> = 'juga'</em><a class="headerlink" href="#ooni.nettests.third_party.psiphon.PsiphonTest.author" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ooni.nettests.third_party.psiphon.PsiphonTest.description">
+<code class="descname">description</code><em class="property"> = 'Bootstraps Psiphon and                 does a HTTP GET for the specified URL'</em><a class="headerlink" href="#ooni.nettests.third_party.psiphon.PsiphonTest.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ooni.nettests.third_party.psiphon.PsiphonTest.handleRead">
+<code class="descname">handleRead</code><span class="sig-paren">(</span><em>stdout</em>, <em>stderr</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/third_party/psiphon.html#PsiphonTest.handleRead"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.third_party.psiphon.PsiphonTest.handleRead" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ooni.nettests.third_party.psiphon.PsiphonTest.name">
+<code class="descname">name</code><em class="property"> = 'Psiphon Test'</em><a class="headerlink" href="#ooni.nettests.third_party.psiphon.PsiphonTest.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ooni.nettests.third_party.psiphon.PsiphonTest.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/third_party/psiphon.html#PsiphonTest.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.third_party.psiphon.PsiphonTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ooni.nettests.third_party.psiphon.PsiphonTest.test_psiphon">
+<code class="descname">test_psiphon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ooni/nettests/third_party/psiphon.html#PsiphonTest.test_psiphon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.third_party.psiphon.PsiphonTest.test_psiphon" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ooni.nettests.third_party.psiphon.PsiphonTest.timeout">
+<code class="descname">timeout</code><em class="property"> = 20</em><a class="headerlink" href="#ooni.nettests.third_party.psiphon.PsiphonTest.timeout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ooni.nettests.third_party.psiphon.PsiphonTest.usageOptions">
+<code class="descname">usageOptions</code><a class="headerlink" href="#ooni.nettests.third_party.psiphon.PsiphonTest.usageOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#ooni.nettests.third_party.psiphon.UsageOptions" title="ooni.nettests.third_party.psiphon.UsageOptions"><code class="xref py py-class docutils literal"><span class="pre">UsageOptions</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ooni.nettests.third_party.psiphon.PsiphonTest.version">
+<code class="descname">version</code><em class="property"> = '0.0.1'</em><a class="headerlink" href="#ooni.nettests.third_party.psiphon.PsiphonTest.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ooni.nettests.third_party.psiphon.UsageOptions">
+<em class="property">class </em><code class="descclassname">ooni.nettests.third_party.psiphon.</code><code class="descname">UsageOptions</code><a class="reference internal" href="../_modules/ooni/nettests/third_party/psiphon.html#UsageOptions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ooni.nettests.third_party.psiphon.UsageOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">twisted.python.usage.Options</span></code></p>
+<dl class="attribute">
+<dt id="ooni.nettests.third_party.psiphon.UsageOptions.optParameters">
+<code class="descname">optParameters</code><em class="property"> = [['url', 'u', None, 'Specify a single URL to test.'], ['psiphonpath', 'p', None, 'Specify psiphon python client path.'], ['socksproxy', 's', None, 'Specify psiphon socks proxy ip:port.']]</em><a class="headerlink" href="#ooni.nettests.third_party.psiphon.UsageOptions.optParameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 

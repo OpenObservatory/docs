@@ -121,6 +121,23 @@ postgres database you should run (after having installed the requirements in
 <pre><code>invoke add_headers_to_db
 </code></pre>
 
+<p>To re-run the data pipeline from scratch you shall first clean all the streams
+by running:</p>
+<pre><code>invoke clean_streams
+</code></pre>
+
+<p>Then for every date you wish to import streams on you shall run:</p>
+<pre><code>invoke add_headers_to_db --workers=NUMBER_OF_CORES $YEAR
+</code></pre>
+
+<p>When doing this AWS it's ideal to have 1 machine per year running.</p>
+<p>This can be achieved by running the start_computer task like so:</p>
+<pre><code>invoke start_computer --invoke_command=&quot;add_headers_to_db --workers=32 --halt 2012&quot;
+invoke start_computer --invoke_command=&quot;add_headers_to_db --workers=32 --halt 2013&quot;
+invoke start_computer --invoke_command=&quot;add_headers_to_db --workers=32 --halt 2014&quot;
+invoke start_computer --invoke_command=&quot;add_headers_to_db --workers=32 --halt 2015&quot;
+</code></pre>
+
 <h2 id="configuration">Configuration</h2>
 <p>Before running the pipeline you should configure it by editing the
 <code>invoke.yaml</code> file. An example configuration file is provided inside of
@@ -404,7 +421,8 @@ into the incoming AWS bucket.</p>
 machine when done.</p>
 <h3 id="start-computer">Start computer</h3>
 <p>This task can be run via:</p>
-<pre><code>invoke [--private-key=PATH instance-type=INSTANCE_TYPE --invoke_command=INVOKE_COMMAND]
+<pre><code>invoke start_computer [--private-key=PATH --instance-type=INSTANCE_TYPE ]
+                      [--invoke_command=INVOKE_COMMAND]
 </code></pre>
 
 <ul>
@@ -492,5 +510,5 @@ spark scripts on a hadoop cluster.</p>
 
 <!--
 MkDocs version : 0.14.0
-Build Date UTC : 2015-11-26 15:54:44.038665
+Build Date UTC : 2015-11-29 20:56:32.157090
 -->

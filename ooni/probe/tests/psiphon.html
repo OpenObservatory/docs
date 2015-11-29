@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Details &mdash; OONI: Open Observatory of Network Interference 1.3.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="OONI: Open Observatory of Network Interference 1.3.1 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> OONI: Open Observatory of Network Interference
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing_tests.html">Writing OONI tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports.html">Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reports.html#report-format-version-changelog">Report format version changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nettests/modules.html">Implemented NetTests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ooni.html">Measurement Developer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ooni.templates.html">Test Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">OONI: Open Observatory of Network Interference</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Details</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tests/psiphon.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="details">
+<h1>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h1>
+<p><em>Test Name</em>: Psiphon</p>
+<p><em>Current version</em>: 0.1</p>
+<p><em>NetTest</em>: Psiphon (<a class="reference external" href="https://github.com/TheTorProject/ooni-probe/blob/master/ooni/nettests/third_party/psiphon.py">https://github.com/TheTorProject/ooni-probe/blob/master/ooni/nettests/third_party/psiphon.py</a>)</p>
+<p><em>Test Helper</em>: None</p>
+<p><em>Test Type</em>: third party</p>
+<p><em>Requires Root</em>: No</p>
+</div>
+<div class="section" id="description">
+<h1>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h1>
+<p>This test first check that the Psiphon path exists, then launches Psiphon and parses output to determine if it has bootstrapped. After bootstrap, it fetches google.com (or other URL specified by the &#8211;url argument) using Psiphons SOCKS proxy listening on 127.0.0.1:1080 (or otherwise specified by the &#8211;socksproxy argument).</p>
+<p>The specific string used to determine bootstrap from Psiphon output in version
+&#8220;0.0.1&#8221; is &#8220;Press Ctrl-C to terminate.&#8221; from standard output.</p>
+</div>
+<div class="section" id="how-to-run-the-test">
+<h1>How to run the test<a class="headerlink" href="#how-to-run-the-test" title="Permalink to this headline">¶</a></h1>
+<p><cite>ooniprobe third_party/psiphon</cite></p>
+<p>To test Psiphon with a different URL run:</p>
+<p><cite>ooniprobe third_party/psiphon -u http://&lt;url&gt;/</cite></p>
+<p>To test Psiphon when it is installed in a different path other than the user home:</p>
+<p><cite>ooniprobe blocking/http_requests -p &lt;path to Psiphon repository&gt;</cite></p>
+</div>
+<div class="section" id="how-to-install-psiphon">
+<h1>How to install Psiphon<a class="headerlink" href="#how-to-install-psiphon" title="Permalink to this headline">¶</a></h1>
+<p>Run the install script:</p>
+<p><cite>scripts/psiphon_install.sh</cite></p>
+<p>To run Psiphon manually, it must be run inside of the proper directory:</p>
+<p><cite>cd &lt;psiphonpath&gt;//psiphon-circumvention-system/pyclient/</cite>
+<cite>python psi_client.py</cite></p>
+</div>
+<div class="section" id="sample-report">
+<h1>Sample report<a class="headerlink" href="#sample-report" title="Permalink to this headline">¶</a></h1>
+<p><cite>ooniprobe blocking/http_requests -f example_inputs/url_lists_file.txt</cite></p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="c">###########################################</span>
+<span class="c"># OONI Probe Report for psiphon_test (0.0.1)</span>
+<span class="c"># Mon Oct 12 21:40:52 2015</span>
+<span class="c">###########################################</span>
+</pre></div>
+</div>
+<p>&#8212;
+input_hashes: []
+options: [-u, google.com]
+probe_asn: AS0
+probe_cc: ZZ
+probe_city: null
+probe_ip: 127.0.0.1
+report_id: 4dAHr0ceNDBmw5lUQ7pBoxqgyUSfP873Qj1zv5VyElnSSTXwcsLYeCv69DsUjb94
+software_name: ooniprobe
+software_version: 1.3.1
+start_time: 1444686051.0
+test_helpers: {}
+test_name: psiphon_test
+test_version: 0.0.1
+...
+&#8212;
+/tmp/tmplKg8K3: {exit_reason: process_done, stderr: &#8216;&#8217;, stdout: &#8221;./ssh is not a valid</p>
+<blockquote>
+<div>executable. Using standard ssh.rnrnYour SOCKS proxy is now running at 127.0.0.1:1080rnrnPress Ctrl-C to terminate.rnTerminating...rnConnection closedrn&#8221;}</div></blockquote>
+<p>agent: agent
+input: null
+psiphon_installed: true
+requests:
+- request:</p>
+<blockquote>
+<div><blockquote>
+<div>body: null
+headers: []
+method: GET
+tor: {is_tor: false}
+url: <a class="reference external" href="http://google.com">http://google.com</a></div></blockquote>
+<dl class="docutils">
+<dt>response:</dt>
+<dd><dl class="first docutils">
+<dt>body: &#8220;&lt;HTML&gt;&lt;HEAD&gt;&lt;meta http-equiv=&#8221;content-type&#8221; content=&#8221;text/html;charset=utf-8&#8221;</dt>
+<dd>&gt;n&lt;TITLE&gt;301 Moved&lt;/TITLE&gt;&lt;/HEAD&gt;&lt;BODY&gt;n&lt;H1&gt;301 Moved&lt;/H1&gt;nThe document hasmovedn&lt;A HREF=&#8221;<a class="reference external" href="http://www.google.com/">http://www.google.com/</a>&#8220;&gt;here&lt;/A&gt;.rn&lt;/BODY&gt;&lt;/HTML&gt;rn&#8221;</dd>
+</dl>
+<p>code: 301
+headers:
+- - Content-Length</p>
+<blockquote>
+<div><ul class="simple">
+<li>[&#8216;219&#8217;]</li>
+</ul>
+</div></blockquote>
+<ul class="last simple">
+<li><ul class="first">
+<li>X-XSS-Protection</li>
+<li>[1; mode=block]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Expires</li>
+<li>[&#8216;Wed, 11 Nov 2015 21:40:58 GMT&#8217;]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Server</li>
+<li>[gws]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Connection</li>
+<li>[close]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Location</li>
+<li>[&#8216;<a class="reference external" href="http://www.google.com/">http://www.google.com/</a>&#8216;]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Cache-Control</li>
+<li>[&#8216;public, max-age=2592000&#8217;]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Date</li>
+<li>[&#8216;Mon, 12 Oct 2015 21:40:58 GMT&#8217;]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>X-Frame-Options</li>
+<li>[SAMEORIGIN]</li>
+</ul>
+</li>
+<li><ul class="first">
+<li>Content-Type</li>
+<li>[text/html; charset=UTF-8]</li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<p>socksproxy: 127.0.0.1:1080
+test_runtime: 7.373162031173706
+test_start_time: 1444686052.0
+...</p>
+</div></blockquote>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, The Tor Project.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.3.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
