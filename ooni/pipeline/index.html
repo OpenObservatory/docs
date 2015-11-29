@@ -441,7 +441,7 @@ machine when done.</p>
 be important to also run the --halt to avoid extra costs.</p>
 <h3 id="spark-apps">Spark apps</h3>
 <p>This task can be run via:</p>
-<pre><code>invoke [--private-key=PATH instance-type=INSTANCE_TYPE --invoke_command=INVOKE_COMMAND]
+<pre><code>invoke spark_apps [--private-key=PATH instance-type=INSTANCE_TYPE --invoke_command=INVOKE_COMMAND]
 </code></pre>
 
 <p>This task will run the batch spark based apps on a hadoop cluster. The current
@@ -452,10 +452,7 @@ date has been processed.</p>
 <ul>
 <li><strong>date-interval</strong></li>
 </ul>
-<p>The date range that should be taken into consideration when running the
-<code>generate_streams</code> task. If no date range is specified it will run against all
-the dates.
-The format for the date range is that of the <a href="http://luigi.readthedocs.org/en/stable/api/luigi.date_interval.html">luigi DateInterval
+<p>The format for the date range is that of the <a href="http://luigi.readthedocs.org/en/stable/api/luigi.date_interval.html">luigi DateInterval
 module</a>.
 For example: <code>2019-10</code> will be the full month of October 2019 or
 <code>2019-10-29-2019-10-31</code> will be the dates of the 29th and 30th of 2019.</p>
@@ -510,5 +507,5 @@ spark scripts on a hadoop cluster.</p>
 
 <!--
 MkDocs version : 0.14.0
-Build Date UTC : 2015-11-29 21:11:36.932481
+Build Date UTC : 2015-11-29 22:23:04.476760
 -->
